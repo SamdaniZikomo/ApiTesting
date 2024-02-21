@@ -1,0 +1,32 @@
+@page "/new-user"
+
+
+<h1>User</h1>
+
+<EditForm Model="name" OnSubmit="GetPokemon">
+    <DataAnnotationsValidator />
+    <InputText @bind-Value="name" />
+    <button type="submit" >Submit</button>
+</EditForm>
+@if (PokemonDetails.name == null)
+{
+
+    <p>loading...</p>
+}
+else
+{
+    <br />
+    <br />
+    <h3>Name : @PokemonDetails.name</h3>
+    <br />
+    <h3>Height : @PokemonDetails.height</h3>
+    <br />
+    <h3>Weight : @PokemonDetails.weight</h3>
+    <br />
+    <h3>Id : @PokemonDetails.id</h3>
+    <br />
+    <h3>Default : @PokemonDetails.is_default</h3>
+    <br />
+    <img src="@PokemonDetails.sprites.front_default">
+    <img src="@PokemonDetails.sprites.front_shiny">
+}
